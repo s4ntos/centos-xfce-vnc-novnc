@@ -14,11 +14,13 @@ RUN yum -y update
 RUN yum -y install epel-release 
 RUN yum -y install xfce4-session tigervnc-server novnc firefox xterm Thunar xfdesktop
 # Temporary packages for vnc2flv 
-RUN yum -y install gcc python-devel
+# RUN yum -y install gcc python-devel
 
 # Enable vnc2flv
 # VNC2FLV not required because we are able to do this with ffmpeg
 # RUN easy_install vnc2flv
+
+# Prepare directory where recording will occur
 RUN mkdir /root/recording/
 RUN echo "${VNC_PW}" > /root/recording/passwd  
 
@@ -49,7 +51,7 @@ RUN chmod +x /root/scripts/vnc_novnc_startup.sh
 RUN dbus-uuidgen > /etc/machine-id
 
 # Clean packages required to build vnc2flv 
-RUN yum -y remove mpfr libgomp kernel-headers python-devel
+# RUN yum -y remove mpfr libgomp kernel-headers python-devel
 
 EXPOSE 5901
 EXPOSE 8000
