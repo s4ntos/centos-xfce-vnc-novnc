@@ -12,7 +12,12 @@ ENV NOVNC_PORT 8000
 
 RUN yum -y update
 RUN yum -y install epel-release 
-RUN yum -y install xfce4-session tigervnc-server novnc firefox xterm Thunar xfdesktop
+RUN yum -y install xfce4-session xfce4-settings \
+                   tigervnc-server novnc \
+                   firefox xterm Thunar \
+                   xfdesktop which orage
+                   
+
 # Temporary packages for vnc2flv 
 # RUN yum -y install gcc python-devel
 
@@ -35,6 +40,7 @@ ADD user/.config $USER_HOME/.config
 ADD user/Desktop $USER_HOME/Desktop
 RUN chmod +x ${USER_HOME}/.vnc/xstartup ${USER_HOME}/Desktop/*.desktop;
 RUN echo "${VNC_PW}" | /usr/bin/vncpasswd -f > ${USER_HOME}/.vnc/passwd 2>/dev/null
+RUN chmod 600 ${USER_HOME}/.vnc/passwd
 RUN chown $USER:$USER -R $USER_HOME
 
 # Systemd #
