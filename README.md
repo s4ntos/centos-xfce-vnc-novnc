@@ -23,11 +23,11 @@ Docker image is installed with the following components:
 
   => connect via __VNC viewer `localhost:5901`__, default password: `abcABC123`
 
-  => connect via __noVNC HTML5 client__: [http://localhost]()
+  => connect via __noVNC HTML5 client__: [http://localhost/]()
 
 #### TODO
 
-* Push recording to an object store
-* Stop everything after push
+* --Push recording to an object store--
+* --Stop everything after push--
 * Create random password on startup of docker 
 * Create a higher level of authentication
