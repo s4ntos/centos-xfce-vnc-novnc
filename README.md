@@ -27,7 +27,7 @@ Docker image is installed with the following components:
 
 #### TODO
 
-* --Push recording to an object store--
-* --Stop everything after push--
+* ~~Push recording to an object store~~
+* ~~Stop everything after push~~
 * Create random password on startup of docker 
 * Create a higher level of authentication
