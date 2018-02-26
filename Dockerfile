@@ -18,13 +18,6 @@ RUN yum -y install xfce4-session xfce4-settings \
                    xfdesktop which orage
                    
 
-# Temporary packages for vnc2flv 
-# RUN yum -y install gcc python-devel
-
-# Enable vnc2flv
-# VNC2FLV not required because we are able to do this with ffmpeg
-# RUN easy_install vnc2flv
-
 # Prepare directory where recording will occur
 RUN mkdir /root/recording/
 RUN echo "${VNC_PW}" > /root/recording/passwd  
@@ -52,7 +45,7 @@ RUN ln -s /etc/systemd/system/novnc.service /etc/systemd/system/multi-user.targe
 ##########
 ADD iptables /etc/sysconfig/iptables
 ADD scripts/ /root/scripts
-RUN chmod +x /root/scripts/vnc_novnc_startup.sh
+RUN chmod +x /root/scripts/*.sh
 # Is this really required? 
 RUN dbus-uuidgen > /etc/machine-id
 
